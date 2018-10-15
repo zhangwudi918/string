@@ -34,6 +34,6 @@ public class StringManipulation {
             sb.append("*");
         }
 
-
+        System.out.print(sb.toString());
     }
 }
