@@ -10,22 +10,22 @@ import java.util.Map;
 public class FileFinder {
 	private Map<String, Integer> map = new HashMap<String, Integer>();
 	private FileInputStream in;
-	private final String author="Author:";
-	private final String fileAddress="list-Develop/log.txt";
-	private final int authorLength=7;
+	private static final String AUTHORr="Author:";
+	private static final String FILE_ADDRESS="list-Develop/log.txt";
+
 	public void start() {
 		
 		try {
-			 in = new FileInputStream(fileAddress);
+			 in = new FileInputStream(FILE_ADDRESS);
 			InputStreamReader isr = new InputStreamReader(in);
 			BufferedReader br = new BufferedReader(isr);
 			String line;
 
 			while ((line = br.readLine()) != null) {
 
-				if (line.startsWith(author)) {
+				if (line.startsWith(AUTHORr)) {
 
-					line = line.substring(authorLength);
+					line = line.substring(AUTHORr.length());
 
 					if (map.containsKey(line)) {
 						Integer i = map.get(line) + 1;
