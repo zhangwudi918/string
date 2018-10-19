@@ -8,21 +8,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FileFinder {
-	Map<String, Integer> map = new HashMap<String, Integer>();
-	FileInputStream in;
+	private Map<String, Integer> map = new HashMap<String, Integer>();
+	private FileInputStream in;
+	private final String author="Author:";
+	private final String fileAddress="list-Develop/log.txt";
+	private final int authorLength=7;
 	public void start() {
 		
 		try {
-			 in = new FileInputStream("list-Develop/log.txt");
+			 in = new FileInputStream(fileAddress);
 			InputStreamReader isr = new InputStreamReader(in);
 			BufferedReader br = new BufferedReader(isr);
 			String line;
 
 			while ((line = br.readLine()) != null) {
 
-				if (line.startsWith("Author:")) {
+				if (line.startsWith(author)) {
 
-					line = line.substring(7);
+					line = line.substring(authorLength);
 
 					if (map.containsKey(line)) {
 						Integer i = map.get(line) + 1;
@@ -47,6 +50,10 @@ public class FileFinder {
 			}
 		}
 
+	}
+
+	public Map<String, Integer> getMap() {
+		return map;
 	}
 
 	public static void main(String[] args) {
