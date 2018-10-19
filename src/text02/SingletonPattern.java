@@ -5,9 +5,9 @@ public class SingletonPattern {
 	private SingletonPattern() {
 	}
 
-	private SingletonPattern sp = new SingletonPattern();
+	private static SingletonPattern sp = new SingletonPattern();
 
-	public SingletonPattern getobj() {
+	public static  SingletonPattern getobj() {
 		return sp;
 	}
 
